@@ -3,11 +3,15 @@ class PeopleController < ApplicationController
 
   # GET /people or /people.json
   def index
-    @people = Person.all
+    @people = Person.order(views_count: :desc)
   end
 
   # GET /people/1 or /people/1.json
   def show
+    unless cookies["person_#{@person.id}_viewed"]
+      @person.increment!(:views_count)
+      cookies["person_#{@person.id}_viewed"] = { value: true, expires: 1.hour.from_now }
+    end
   end
 
   # GET /people/new
@@ -66,5 +70,9 @@ class PeopleController < ApplicationController
     # Only allow a list of trusted parameters through.
     def person_params
       params.require(:person).permit(:first_name, :last_name, :email, :github_url, :devto_url, :linkedin_url, :photo_url)
+    end
+
+    def set_person
+      @person = Person.find(params[:id])
     end
 end
