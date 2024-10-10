@@ -1,37 +1,46 @@
 <div id="<%= dom_id person %>">
   <p>
     <strong>First name:</strong>
-    <%= person.first_name %>
+    <%= @person.first_name %>
   </p>
 
   <p>
     <strong>Last name:</strong>
-    <%= person.last_name %>
+    <%= @person.last_name %>
   </p>
 
   <p>
     <strong>Email:</strong>
-    <%= person.email %>
+    <%= @person.email %>
   </p>
 
   <p>
-    <strong>Github url:</strong>
-    <%= person.github_url %>
+    <strong>GitHub URL:</strong>
+    <%= @person.github_url %>
   </p>
 
   <p>
-    <strong>Devto url:</strong>
-    <%= person.devto_url %>
+    <strong>Dev.to URL:</strong>
+    <%= @person.devto_url %>
   </p>
 
   <p>
-    <strong>Linkedin url:</strong>
-    <%= person.linkedin_url %>
+    <strong>LinkedIn URL:</strong>
+    <%= @person.linkedin_url %>
   </p>
 
   <p>
-    <strong>Photo url:</strong>
-    <%= person.photo_url %>
+    <strong>Photo URL:</strong>
+    <%= @person.photo_url %>
   </p>
 
+  <p>
+    <strong>Views count:</strong>
+    <%= @person.views_count %>
+  </p>
+
+  <p>
+    <strong>QR Code:</strong><br>
+    <%= raw @person.qr_code %>
+  </p>
 </div>
