@@ -30,7 +30,7 @@ class PeopleController < ApplicationController
     respond_to do |format|
       if @person.save
         format.html { redirect_to @person, notice: "Person was successfully created." }
-        format.json { render :show, status: :created, location: @person }
+        format.json { render json: { person: @person, qr_code: @person.qr_code }, status: :created, location: @person }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @person.errors, status: :unprocessable_entity }
