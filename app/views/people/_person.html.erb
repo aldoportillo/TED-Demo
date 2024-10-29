@@ -1,46 +1,45 @@
-<div id="<%= dom_id person %>">
-  <p>
-    <strong>First name:</strong>
-    <%= @person.first_name %>
-  </p>
-
-  <p>
-    <strong>Last name:</strong>
-    <%= @person.last_name %>
-  </p>
-
-  <p>
-    <strong>Email:</strong>
-    <%= @person.email %>
-  </p>
-
-  <p>
-    <strong>GitHub URL:</strong>
-    <%= @person.github_url %>
-  </p>
-
-  <p>
-    <strong>Dev.to URL:</strong>
-    <%= @person.devto_url %>
-  </p>
-
-  <p>
-    <strong>LinkedIn URL:</strong>
-    <%= @person.linkedin_url %>
-  </p>
-
-  <p>
-    <strong>Photo URL:</strong>
-    <%= @person.photo_url %>
-  </p>
-
-  <p>
-    <strong>Views count:</strong>
-    <%= @person.views_count %>
-  </p>
-
-  <p>
-    <strong>QR Code:</strong><br>
+<div id="<%= dom_id person %>" class="card m-3 col-md-6  position-absolute top-50 start-50 translate-middle">
+  <p class="flex justify-content-center">
     <%= raw @person.qr_code %>
   </p>
+  <div class="card-body flex justify-content-center align-item-center">
+    <h3 class="card-title"><%= @person.first_name %> <%= @person.last_name %></h3>
+    <p>
+      <strong>Email:</strong>
+      <%= @person.email %>
+    </p>
+
+    <p>
+      <strong>GitHub URL:</strong>
+      <%= link_to "#{@person.github_url}" %>
+    </p>
+
+    <p>
+      <strong>Dev.to URL:</strong>
+      <%= link_to "#{@person.devto_url}" %>
+    </p>
+
+    <p>
+      <strong>LinkedIn URL:</strong>
+      <%= link_to "#{@person.linkedin_url}" %>
+    </p>
+
+    <p>
+      <strong>Photo URL:</strong>
+      <%= @person.photo_url %>
+    </p>
+
+    <p>
+      <strong>Views count:</strong>
+      <%= @person.views_count %>
+    </p>
+  </div>
+  
+  <div>
+    <%= link_to "Back to people", people_path, class:"btn btn-primary" %>
+    <%= link_to "Edit this person", edit_person_path(@person), class:"btn btn-secondary" %> |
+
+    <%= button_to "Destroy this person", @person, method: :delete, class:"btn btn-danger" %>
+  </div>
 </div>
+
