@@ -1,38 +1,43 @@
 <div id="<%= dom_id person %>" class="card m-3 col-md-6  position-absolute top-50 start-50 translate-middle">
-  <p class="flex justify-content-center">
+
+  <h3 class="d-flex justify-content-center my-5">Views: <%=@person.views_count%></h3>
+
+  <p class="d-flex justify-content-center">
     <%= raw @person.qr_code %>
   </p>
-  <div class="card-body flex justify-content-center align-item-center">
-    <h3 class="card-title"><%= @person.first_name %> <%= @person.last_name %></h3>
-    <p>
-      <strong>Email:</strong>
+  <div class="card-body">
+    <h3 class="card-title d-flex justify-content-center"><%= @person.first_name %> <%= @person.last_name %></h3>
+    <p class="d-flex justify-content-center">
       <%= @person.email %>
     </p>
 
-    <p>
-      <strong>GitHub URL:</strong>
-      <%= link_to "#{@person.github_url}" %>
-    </p>
+    <% if @person.github_url?%>
+      <p class="d-flex justify-content-center">
+        <strong>GitHub URL:</strong>
+        <%= link_to "#{@person.github_url}" %>
+      </p>
+    <% end %>
 
-    <p>
-      <strong>Dev.to URL:</strong>
-      <%= link_to "#{@person.devto_url}" %>
-    </p>
+    <% if @person.devto_url?%>
+      <p class="d-flex justify-content-center">
+        <strong>Dev.to URL:</strong>
+        <%= link_to "#{@person.devto_url}" %>
+      </p>
+    <% end %>
 
-    <p>
-      <strong>LinkedIn URL:</strong>
-      <%= link_to "#{@person.linkedin_url}" %>
-    </p>
+    <% if @person.linkedin_url?%>
+      <p class="d-flex justify-content-center">
+        <strong>LinkedIn URL:</strong>
+        <%= link_to "#{@person.linkedin_url}" %>
+      </p>
+    <% end %>
 
-    <p>
-      <strong>Photo URL:</strong>
-      <%= @person.photo_url %>
-    </p>
-
-    <p>
-      <strong>Views count:</strong>
-      <%= @person.views_count %>
-    </p>
+    <% if @person.photo_url?%>
+      <p class="d-flex justify-content-center">
+        <strong>Photo URL:</strong>
+        <%= @person.photo_url %>
+      </p>
+    <% end %>
   </div>
   
   <div>
