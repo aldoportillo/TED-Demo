@@ -1,50 +1,40 @@
-<div id="<%= dom_id person %>" class="card m-3 col-md-6  position-absolute top-50 start-50 translate-middle">
+<div id="<%= dom_id person %>" class="card m-3 col-md-6  position-absolute top-50 start-50 translate-middle" style="background-color:#ccc">
 
-  <h3 class="d-flex justify-content-center my-5">Views: <%=@person.views_count%></h3>
+  <h3 class="d-flex justify-content-center mt-5">Views: <%=@person.views_count%></h3>
+  <% if @person.photo_url?%>
+    <a href="#https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.etsy.com%2Flisting%2F1438067022%2Flink-legend-of-zelda-tears-of-the&psig=AOvVaw0VRozrZe0ILF2yh3D8ijDX&ust=1730319143443000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIiS2qCztIkDFQAAAAAdAAAAABAE" class="card-img-top" alt="...">
+    </a>
+    <p class="d-flex justify-content-center">
+      <%= @person.photo_url %>
+    </p>
+  <% end %>
 
-  <p class="d-flex justify-content-center">
-    <%= raw @person.qr_code %>
-  </p>
   <div class="card-body">
     <h3 class="card-title d-flex justify-content-center"><%= @person.first_name %> <%= @person.last_name %></h3>
     <p class="d-flex justify-content-center">
       <%= @person.email %>
     </p>
 
+    <% if @person.linkedin_url?%>
+      <p class="d-flex justify-content-center">
+        <strong>LinkedIn:</strong>
+        <a href="<%=@person.linkedin_url%>"><%=@person.linkedin_url%></a>
+      </p>
+    <% end %>
+
     <% if @person.github_url?%>
       <p class="d-flex justify-content-center">
-        <strong>GitHub URL:</strong>
-        <%= link_to "#{@person.github_url}" %>
+        <strong>GitHub:</strong>
+        <a href="<%=@person.github_url%>"><%=@person.github_url%></a>
       </p>
     <% end %>
 
     <% if @person.devto_url?%>
       <p class="d-flex justify-content-center">
-        <strong>Dev.to URL:</strong>
-        <%= link_to "#{@person.devto_url}" %>
+        <strong>Dev.to:</strong>
+        <a href="<%=@person.devto_url%>"><%=@person.devto_url%></a>
       </p>
     <% end %>
-
-    <% if @person.linkedin_url?%>
-      <p class="d-flex justify-content-center">
-        <strong>LinkedIn URL:</strong>
-        <%= link_to "#{@person.linkedin_url}" %>
-      </p>
-    <% end %>
-
-    <% if @person.photo_url?%>
-      <p class="d-flex justify-content-center">
-        <strong>Photo URL:</strong>
-        <%= @person.photo_url %>
-      </p>
-    <% end %>
-  </div>
-  
-  <div>
-    <%= link_to "Back to people", people_path, class:"btn btn-primary" %>
-    <%= link_to "Edit this person", edit_person_path(@person), class:"btn btn-secondary" %> |
-
-    <%= button_to "Destroy this person", @person, method: :delete, class:"btn btn-danger" %>
   </div>
 </div>
 
