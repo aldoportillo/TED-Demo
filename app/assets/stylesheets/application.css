@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+
+ .bg-yellow{
+    background-color: rgb(255, 240, 191);
+ }
+
+ .bg-gray{
+    background-color:#dadada
+}
+
+.t-orange{
+    color: rgb(255, 174, 24);
+ }
+
+ .t-gray{
+    color:#dadada
+}
