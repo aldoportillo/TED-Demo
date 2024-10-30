@@ -4,6 +4,7 @@ class PeopleController < ApplicationController
   # GET /people or /people.json
   def index
     @people = Person.order(views_count: :desc)
+    @top_three = Person.order(views_count: :desc).limit(3)
   end
 
   # GET /people/1 or /people/1.json
