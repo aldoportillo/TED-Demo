@@ -1,7 +1,9 @@
 <!-- app/views/people/index.html.erb -->
+<h2>Exploration Day Feed</h2>
+
 <div class="d-flex justify-content-center"> 
   <% @top_three.each do |person| %>
-    <div class="card m-5 shadow col-md-3 py-5"> 
+    <div class="card m-5 shadow col-md-3 py-5 bg-warning"> 
       <h3 class="d-flex justify-content-center"><%= person.first_name %> <%= person.last_name %></h3>
       <h5 class="d-flex justify-content-center"><%= person.email %></h5>
       <h5 class="d-flex justify-content-center">Views: <%= person.views_count %><h5>
@@ -10,8 +12,8 @@
 </div>
 
 <div class="card mx-5 shadow">
-  <table class="table table-striped">
-    <thead class="table-warning">
+  <table class="table table-striped text-center">
+    <thead class="table-dark">
       <tr>
         <th>First name</th>
         <th>Last name</th>
@@ -41,5 +43,5 @@
       <% end %>
     </tbody>
   </table>
+  <%= link_to 'New Person', new_person_path, class:"btn btn-success" %>
 </div>
-<%= link_to 'New Person', new_person_path %>
