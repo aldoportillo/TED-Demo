@@ -32,6 +32,21 @@
         color:#dadada
     }
 
+    .button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #ff8c00; /* Change to your desired button color */
+        color: white; /* Text color */
+        text-align: center;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 16px;
+        width: 150px;
+    }
+
+    .button:hover {
+        background-color: #e07b00; /* Darker shade for hover effect */
+    }
  
     @media (max-width: 900px){
         .only-desktop{

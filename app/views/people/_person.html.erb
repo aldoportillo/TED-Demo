@@ -1,4 +1,4 @@
-<div id="<%= dom_id person %>" class="card m-3 col-md-6  position-absolute top-50 start-50 translate-middle bg-gray b-shadow" >
+<div id="<%= dom_id person %>" class="card m-3 col-sm-6  position-absolute top-50 start-50 translate-middle bg-gray b-shadow" >
 
   <div class="d-flex justify-content-center mt-5">
     <h3 class="me-1">Views:</h3>
@@ -12,23 +12,20 @@
     </p>
 
     <% if @person.linkedin_url?%>
-      <p class="d-flex justify-content-center">
-        <strong>LinkedIn:</strong>
-        <a href="<%=@person.linkedin_url%>" class="t-orange"><%=@person.linkedin_url%></a>
+      <p class="d-flex justify-content-center  align-items-center">
+        <a href="<%=@person.linkedin_url%>" class="button t-orange">LinkedIn</a>
       </p>
     <% end %>
 
     <% if @person.github_url?%>
-      <p class="d-flex justify-content-center">
-        <strong>GitHub:</strong>
-        <a href="<%=@person.github_url%>" class="t-orange"><%=@person.github_url%></a>
+      <p class="d-flex justify-content-center  align-items-center">
+        <a href="<%=@person.github_url%>" class="button t-orange">GitHub</a>
       </p>
     <% end %>
 
     <% if @person.devto_url?%>
-      <p class="d-flex justify-content-center">
-        <strong>Dev.to:</strong>
-        <a href="<%=@person.devto_url%>" class="t-orange"><%=@person.devto_url%></a>
+      <p class="d-flex justify-content-center align-items-center">
+        <a href="<%=@person.devto_url%>" class="button t-orange">Dev.to</a>
       </p>
     <% end %>
   </div>
