@@ -31,3 +31,15 @@
     .t-gray{
         color:#dadada
     }
+
+ 
+    @media (max-width: 900px){
+        .only-desktop{
+            display: none;
+        }
+    }
+    @media (min-width: 900px){
+        .only-desktop{
+            display: block;
+        }
+    }
