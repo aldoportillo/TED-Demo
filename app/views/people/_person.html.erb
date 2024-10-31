@@ -17,15 +17,15 @@
       </p>
     <% end %>
 
-    <% if @person.github_url?%>
+    <% if @person.github_username?%>
       <p class="d-flex justify-content-center  align-items-center">
-        <a href="<%=@person.github_url%>" class="button t-orange">GitHub</a>
+        <a href="<%=@person.github_username%>" class="button t-orange">GitHub</a>
       </p>
     <% end %>
 
-    <% if @person.devto_url?%>
+    <% if @person.devt_username?%>
       <p class="d-flex justify-content-center align-items-center">
-        <a href="<%=@person.devto_url%>" class="button t-orange">Dev.to</a>
+        <a href="<%=@person.devt_username%>" class="button t-orange">Dev.to</a>
       </p>
     <% end %>
   </div>

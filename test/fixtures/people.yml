@@ -4,8 +4,8 @@ one:
   first_name: MyString
   last_name: MyString
   email: MyString
-  github_url: MyString
-  devto_url: MyString
+  github_username: MyString
+  devt_username: MyString
   linkedin_url: MyString
   photo_url: MyString
 
@@ -13,7 +13,7 @@ two:
   first_name: MyString
   last_name: MyString
   email: MyString
-  github_url: MyString
-  devto_url: MyString
+  github_username: MyString
+  devt_username: MyString
   linkedin_url: MyString
   photo_url: MyString
