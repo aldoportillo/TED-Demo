@@ -13,3 +13,48 @@
  *= require_tree .
  *= require_self
  */
+    .b-shadow{
+        box-shadow: 0 0 10px #ccc;
+    }
+    .bg-yellow{
+        background-color: rgb(255, 240, 191);
+    }
+
+    .bg-gray{
+        background-color:#eeeeee
+    }
+
+    .t-orange{
+        color: rgb(232, 152, 3);
+    }
+
+    .t-gray{
+        color:#dadada
+    }
+
+    .button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #ff8c00; /* Change to your desired button color */
+        color: white; /* Text color */
+        text-align: center;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 16px;
+        width: 150px;
+    }
+
+    .button:hover {
+        background-color: #e07b00; /* Darker shade for hover effect */
+    }
+ 
+    @media (max-width: 900px){
+        .only-desktop{
+            display: none;
+        }
+    }
+    @media (min-width: 900px){
+        .only-desktop{
+            display: block;
+        }
+    }

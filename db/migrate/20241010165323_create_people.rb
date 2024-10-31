@@ -4,8 +4,8 @@ class CreatePeople < ActiveRecord::Migration[7.2]
       t.string :first_name
       t.string :last_name
       t.string :email
-      t.string :github_url
-      t.string :devto_url
+      t.string :github_username
+      t.string :devto_username
       t.string :linkedin_url
       t.string :photo_url
 

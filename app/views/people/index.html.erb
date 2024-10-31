@@ -1,38 +1,45 @@
 <!-- app/views/people/index.html.erb -->
-<h1>People</h1>
+<h2 class="m-3">Exploration Day Feed</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Email</th>
-      <th>GitHub URL</th>
-      <th>Dev.to URL</th>
-      <th>LinkedIn URL</th>
-      <th>Photo URL</th>
-      <th>Views count</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="d-flex justify-content-center"> 
+  <% @top_three.each do |person| %>
+    <div class="card m-5 shadow col-md-3 py-5 bg-warning only-desktop"> 
+      <h3 class="d-flex justify-content-center"><%= person.first_name %> <%= person.last_name %></h3>
+      <h5 class="d-flex justify-content-center"><%= person.email %></h5>
+      <h5 class="d-flex justify-content-center">Views: <%= person.views_count %><h5>
+    </div>
+  <% end %>
+</div>
 
-  <tbody>
-    <% @people.each do |person| %>
-      <tr>
-        <td><%= person.first_name %></td>
-        <td><%= person.last_name %></td>
-        <td><%= person.email %></td>
-        <td><%= person.github_url %></td>
-        <td><%= person.devto_url %></td>
-        <td><%= person.linkedin_url %></td>
-        <td><%= person.photo_url %></td>
-        <td><%= person.views_count %></td>
-        <td><%= link_to 'Show', person %></td>
-        <td><%= link_to 'Edit', edit_person_path(person) %></td>
-        <td><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= link_to 'New Person', new_person_path %>
+<div class="card mx-5 shadow">
+  <div class="table-responsive">
+    <table class="table table-striped text-center">
+      <thead class="table-dark">
+        <tr>
+          <th>Views</th>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>Email</th>
+          <th>GitHub URL</th>
+          <th>Dev.to URL</th>
+          <th>LinkedIn URL</th>
+          <th colspan="1"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @people.each do |person| %>
+          <tr>
+            <td><%= person.views_count %></td>
+            <td><%= person.first_name %></td>
+            <td><%= person.last_name %></td>
+            <td><%= person.email %></td>
+            <td><%= person.github_username %></td>
+            <td><%= person.devto_username %></td>
+            <td><%= person.linkedin_url %></td>
+            <td><%= link_to 'Show', person, class:"btn btn-primary"%></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
     allow do
-      origins '127.0.0.1:5501'  # TODO: Change this to the domain you will make the request fromtails
+      origins 'https://h4g3tf99-5501.use.devtunnels.ms'  # TODO: Change this to the domain you will make the request fromtails
   
       resource '*',
         headers: :any,

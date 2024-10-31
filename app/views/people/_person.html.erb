@@ -1,46 +1,33 @@
-<div id="<%= dom_id person %>">
-  <p>
-    <strong>First name:</strong>
-    <%= @person.first_name %>
-  </p>
+<div id="<%= dom_id person %>" class="card m-3 col-sm-6  position-absolute top-50 start-50 translate-middle bg-gray b-shadow" >
 
-  <p>
-    <strong>Last name:</strong>
-    <%= @person.last_name %>
-  </p>
+  <div class="d-flex justify-content-center mt-5">
+    <h3 class="me-1">Views:</h3>
+    <h3 class="t-orange"><%=@person.views_count%></h3>
+  </div>
 
-  <p>
-    <strong>Email:</strong>
-    <%= @person.email %>
-  </p>
+  <div class="card-body">
+    <h3 class="card-title d-flex justify-content-center"><%= @person.first_name %> <%= @person.last_name %></h3>
+    <p class="d-flex justify-content-center">
+      <%= @person.email %>
+    </p>
 
-  <p>
-    <strong>GitHub URL:</strong>
-    <%= @person.github_url %>
-  </p>
+    <% if @person.linkedin_url?%>
+      <p class="d-flex justify-content-center  align-items-center">
+        <a href="<%=@person.linkedin_url%>" class="button t-orange">LinkedIn</a>
+      </p>
+    <% end %>
 
-  <p>
-    <strong>Dev.to URL:</strong>
-    <%= @person.devto_url %>
-  </p>
+    <% if @person.github_username?%>
+      <p class="d-flex justify-content-center  align-items-center">
+        <a href="https://github.com/<%=@person.github_username%>" class="button t-orange">GitHub</a>
+      </p>
+    <% end %>
 
-  <p>
-    <strong>LinkedIn URL:</strong>
-    <%= @person.linkedin_url %>
-  </p>
-
-  <p>
-    <strong>Photo URL:</strong>
-    <%= @person.photo_url %>
-  </p>
-
-  <p>
-    <strong>Views count:</strong>
-    <%= @person.views_count %>
-  </p>
-
-  <p>
-    <strong>QR Code:</strong><br>
-    <%= raw @person.qr_code %>
-  </p>
+    <% if @person.devto_username?%>
+      <p class="d-flex justify-content-center align-items-center">
+        <a href="https://dev.to/<%=@person.devto_username%>" class="button t-orange">Dev.to</a>
+      </p>
+    <% end %>
+  </div>
 </div>
+
