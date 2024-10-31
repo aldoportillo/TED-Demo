@@ -19,13 +19,13 @@
 
     <% if @person.github_username?%>
       <p class="d-flex justify-content-center  align-items-center">
-        <a href="<%=@person.github_username%>" class="button t-orange">GitHub</a>
+        <a href="https://github.com/<%=@person.github_username%>" class="button t-orange">GitHub</a>
       </p>
     <% end %>
 
     <% if @person.devto_username?%>
       <p class="d-flex justify-content-center align-items-center">
-        <a href="<%=@person.devto_username%>" class="button t-orange">Dev.to</a>
+        <a href="https://dev.to/<%=@person.devto_username%>" class="button t-orange">Dev.to</a>
       </p>
     <% end %>
   </div>

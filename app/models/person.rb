@@ -7,7 +7,7 @@ class Person < ApplicationRecord
     end
   
     def qr_code
-      qrcode = RQRCode::QRCode.new(Rails.application.routes.url_helpers.person_url(self, host: 'localhost', port: 3000))
+      qrcode = RQRCode::QRCode.new(Rails.application.routes.url_helpers.person_url(self, host: 'https://h4g3tf99-3000.use.devtunnels.ms')) #TODO: Change this to the domain
       qrcode.as_svg(module_size: 6)
     end
   end

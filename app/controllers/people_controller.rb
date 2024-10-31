@@ -9,11 +9,19 @@ class PeopleController < ApplicationController
 
   # GET /people/1 or /people/1.json
   def show
+    @person = Person.find(params[:id])
+  
     unless cookies["person_#{@person.id}_viewed"]
       @person.increment!(:views_count)
       cookies["person_#{@person.id}_viewed"] = { value: true, expires: 1.hour.from_now }
     end
+  
+    respond_to do |format|
+      format.html 
+      format.json { render json: @person }
+    end
   end
+  
 
   # GET /people/new
   def new
