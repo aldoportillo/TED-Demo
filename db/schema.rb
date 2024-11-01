@@ -19,7 +19,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_10_171448) do
     t.string "last_name"
     t.string "email"
     t.string "github_username"
-    t.string "devto_username"
+    t.string "quiz_result"
     t.string "linkedin_url"
     t.string "photo_url"
     t.datetime "created_at", null: false

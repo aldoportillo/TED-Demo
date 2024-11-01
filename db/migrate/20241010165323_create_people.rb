@@ -5,7 +5,7 @@ class CreatePeople < ActiveRecord::Migration[7.2]
       t.string :last_name
       t.string :email
       t.string :github_username
-      t.string :devto_username
+      t.string :quiz_result
       t.string :linkedin_url
       t.string :photo_url
 
