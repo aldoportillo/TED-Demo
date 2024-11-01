@@ -5,7 +5,9 @@
   <% @top_three.each do |person| %>
     <div class="card m-5 shadow col-md-3 py-5 bg-warning only-desktop"> 
       <h3 class="d-flex justify-content-center"><%= person.first_name %> <%= person.last_name %></h3>
-      <h5 class="d-flex justify-content-center"><%= person.email %></h5>
+      <h4><%= person.github_username %></h4>
+      <h4><%= person.quiz_result %></h4>
+      <h4><%= person.linkedin_url %></h4>
       <h5 class="d-flex justify-content-center">Views: <%= person.views_count %><h5>
     </div>
   <% end %>
@@ -17,10 +19,9 @@
       <thead class="table-dark">
         <tr>
           <th>Views</th>
-          <th>First name</th>
-          <th>Last name</th>
+          <th>Name</th>
           <th>Email</th>
-          <th>GitHub URL</th>
+          <th>GitHub Username</th>
           <th>Results</th>
           <th>LinkedIn URL</th>
           <th colspan="1"></th>
@@ -30,8 +31,7 @@
         <% @people.each do |person| %>
           <tr>
             <td><%= person.views_count %></td>
-            <td><%= person.first_name %></td>
-            <td><%= person.last_name %></td>
+            <td><%= person.first_name %> <%= person.last_name %></td>
             <td><%= person.email %></td>
             <td><%= person.github_username %></td>
             <td><%= person.quiz_result %></td>
