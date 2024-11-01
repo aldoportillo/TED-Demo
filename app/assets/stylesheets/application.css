@@ -48,11 +48,6 @@
     .button:hover {
         background-color: #e07b00; /* Darker shade for hover effect */
     }
- 
-    .button-small{
-        height: 40px;
-        width: 200px;
-    }
 
     @media (max-width: 900px){
         .only-desktop{

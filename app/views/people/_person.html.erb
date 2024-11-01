@@ -2,18 +2,16 @@
   <%= render "people/qrcode_button" %>
 </div>
 
-<div id="<%= dom_id person %>" class="card m-3 col-sm-6 position-absolute top-50 start-50 translate-middle bg-gray" >
-  <% if @person.devto_username?%>
+<div id="<%= dom_id person %>" class="card my-3 position-absolute top-50 start-50 translate-middle bg-gray" style="min-width: 80%; min-height: 50%">
+  <div class="card-body position-absolute top-50 start-50 translate-middle">
+    <h3 class="card-title d-flex justify-content-center align-items-center"><%= @person.first_name %> <%= @person.last_name %></h3>
+    <p class="d-flex justify-content-center">
+      <%= @person.email %>
+    </p>
+
     <p class="d-flex justify-content-center align-items-center">
       <%# TODO: Put users quiz result link and role here %>
       <a href="#" class="button t-orange">Quiz Result</a>
-    </p>
-  <% end %>
-
-  <div class="card-body">
-    <h3 class="card-title d-flex justify-content-center"><%= @person.first_name %> <%= @person.last_name %></h3>
-    <p class="d-flex justify-content-center">
-      <%= @person.email %>
     </p>
 
     <% if @person.linkedin_url?%>
