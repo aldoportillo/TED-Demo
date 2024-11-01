@@ -5,10 +5,8 @@
   <% @top_three.each do |person| %>
     <div class="card m-5 shadow col-md-3 py-5 bg-warning only-desktop"> 
       <h3 class="d-flex justify-content-center"><%= person.first_name %> <%= person.last_name %></h3>
-      <h4><%= person.github_username %></h4>
-      <h4><%= person.quiz_result %></h4>
-      <h4><%= person.linkedin_url %></h4>
-      <h5 class="d-flex justify-content-center">Views: <%= person.views_count %><h5>
+      <h5 class="d-flex justify-content-center"><i class="bi bi-github px-2"></i><%= person.github_username %></h5>
+      <h5 class="d-flex justify-content-center"><i class="bi bi-eye-fill px-2"></i> <%= person.views_count %><h5>
     </div>
   <% end %>
 </div>
