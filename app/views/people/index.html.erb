@@ -1,20 +1,24 @@
 <!-- app/views/people/index.html.erb -->
-<h2 class="m-3">Exploration Day Feed</h2>
+<div class="text-center my-4">
+  <%= image_tag "icon.png", class: "logo-img mb-3" %> <!-- Logo at the top -->
+</div>
 
-<div class="d-flex justify-content-center"> 
+<h2 class="text-center text-orange">Exploration Day Feed</h2>
+
+<div class="d-flex justify-content-center flex-wrap"> 
   <% @top_three.each do |person| %>
-    <div class="card m-5 shadow col-md-3 py-5 bg-warning only-desktop"> 
-      <h3 class="d-flex justify-content-center"><%= person.first_name %> <%= person.last_name %></h3>
-      <h5 class="d-flex justify-content-center"><i class="bi bi-github px-2"></i><%= person.github_username %></h5>
-      <h5 class="d-flex justify-content-center"><i class="bi bi-eye-fill px-2"></i> <%= person.views_count %><h5>
+    <div class="card m-3 shadow col-md-3 p-4 bg-orange text-white text-center">
+      <h3><%= person.first_name %> <%= person.last_name %></h3>
+      <h5><i class="bi bi-github px-2"></i><%= person.github_username %></h5>
+      <h5><i class="bi bi-eye-fill px-2"></i> <%= person.views_count %></h5>
     </div>
   <% end %>
 </div>
 
-<div class="card mx-5 shadow">
+<div class="card mx-3 my-5 shadow bg-orange text-white">
   <div class="table-responsive">
     <table class="table table-striped text-center">
-      <thead class="table-dark">
+      <thead class="bg-dark text-white">
         <tr>
           <th>Views</th>
           <th>Name</th>
@@ -27,17 +31,56 @@
       </thead>
       <tbody>
         <% @people.each do |person| %>
-          <tr>
+          <tr class="text-dark bg-light">
             <td><%= person.views_count %></td>
             <td><%= person.first_name %> <%= person.last_name %></td>
             <td><%= person.email %></td>
             <td><%= person.github_username %></td>
             <td><%= person.quiz_result %></td>
-            <td><%= person.linkedin_url %></td>
-            <td><%= link_to 'Show', person, class:"btn btn-primary"%></td>
+            <td>
+              <% if person.linkedin_url %>
+                <a href="<%= person.linkedin_url %>" class="text-orange"><i class="bi bi-linkedin"></i> LinkedIn</a>
+              <% end %>
+            </td>
+            <td><%= link_to 'Show', person, class: "btn btn-orange" %></td>
           </tr>
         <% end %>
       </tbody>
     </table>
   </div>
 </div>
+
+<style>
+  .logo-img {
+    width: 100px;
+    height: auto;
+  }
+
+  .text-orange {
+    color: #f49a73;
+  }
+
+  .bg-orange {
+    background-color: #f49a73;
+  }
+
+  .btn-orange {
+    background-color: #f49a73;
+    color: #ffffff;
+    border: none;
+  }
+
+  .btn-orange:hover {
+    background-color: #e68961;
+  }
+
+  .only-desktop {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .only-desktop {
+      display: block;
+    }
+  }
+</style>
