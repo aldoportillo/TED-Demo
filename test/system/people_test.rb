@@ -14,7 +14,7 @@ class PeopleTest < ApplicationSystemTestCase
     visit people_url
     click_on "New person"
 
-    fill_in "Devto url", with: @person.devto_username
+    fill_in "Devto url", with: @person.quiz_result
     fill_in "Email", with: @person.email
     fill_in "First name", with: @person.first_name
     fill_in "Github url", with: @person.github_username
@@ -31,7 +31,7 @@ class PeopleTest < ApplicationSystemTestCase
     visit person_url(@person)
     click_on "Edit this person", match: :first
 
-    fill_in "Devto url", with: @person.devto_username
+    fill_in "Devto url", with: @person.quiz_result
     fill_in "Email", with: @person.email
     fill_in "First name", with: @person.first_name
     fill_in "Github url", with: @person.github_username

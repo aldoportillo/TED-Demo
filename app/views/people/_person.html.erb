@@ -1,33 +1,47 @@
-<div id="<%= dom_id person %>" class="card m-3 col-sm-6  position-absolute top-50 start-50 translate-middle bg-gray b-shadow" >
+<div id="<%= dom_id person %>" class="card my-3 position-absolute top-50 start-50 translate-middle bg-gray p-3" style="max-width: 400px; width: 90%;">
+  <div class="card-body text-center">
+    <!-- Adjust logo image size -->
+    <%= image_tag "icon.png", class: "logo-img mb-3" %>
 
-  <div class="d-flex justify-content-center mt-5">
-    <h3 class="me-1">Views:</h3>
-    <h3 class="t-orange"><%=@person.views_count%></h3>
-  </div>
+    <h3 class="card-title mb-2"><%= @person.first_name %> <%= @person.last_name %></h3>
+    <p class="mb-2"><%= @person.email %></p>
+    <p class="text-muted mb-4">Future <%= @person.quiz_result %></p>
 
-  <div class="card-body">
-    <h3 class="card-title d-flex justify-content-center"><%= @person.first_name %> <%= @person.last_name %></h3>
-    <p class="d-flex justify-content-center">
-      <%= @person.email %>
-    </p>
+    <div class="d-flex flex-column align-items-center">
+      <button type="button" class="btn btn-orange btn-block my-2" data-toggle="modal" data-target="#qrModal">
+        QR Code
+      </button>
 
-    <% if @person.linkedin_url?%>
-      <p class="d-flex justify-content-center  align-items-center">
-        <a href="<%=@person.linkedin_url%>" class="button t-orange">LinkedIn</a>
-      </p>
-    <% end %>
+      <% if @person.linkedin_url? %>
+        <a href="<%= @person.linkedin_url %>" class="btn btn-orange btn-block my-2">
+          <i class="bi bi-linkedin"></i> LinkedIn
+        </a>
+      <% end %>
 
-    <% if @person.github_username?%>
-      <p class="d-flex justify-content-center  align-items-center">
-        <a href="https://github.com/<%=@person.github_username%>" class="button t-orange">GitHub</a>
-      </p>
-    <% end %>
-
-    <% if @person.devto_username?%>
-      <p class="d-flex justify-content-center align-items-center">
-        <a href="https://dev.to/<%=@person.devto_username%>" class="button t-orange">Dev.to</a>
-      </p>
-    <% end %>
+      <% if @person.github_username? %>
+        <a href="https://github.com/<%= @person.github_username %>" class="btn btn-orange btn-block my-2">
+          <i class="bi bi-github"></i> GitHub
+        </a>
+      <% end %>
+    </div>
   </div>
 </div>
 
+<style>
+  .logo-img {
+    width: 80px;
+    height: auto;
+  }
+
+  .btn-orange {
+    background-color: #f49a73;
+    color: #ffffff;
+    border: none;
+  }
+
+  @media (max-width: 576px) {
+    .btn-block {
+      width: 100%;
+    }
+  }
+</style>
