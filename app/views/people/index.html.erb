@@ -39,7 +39,7 @@
             <td><%= person.quiz_result %></td>
             <td>
               <% if person.linkedin_url %>
-                <a href="<%= person.linkedin_url %>" class="text-orange"><i class="bi bi-linkedin"></i> LinkedIn</a>
+                <a href="<%= person.linkedin_url %>" class="text-orange"><%= person.linkedin_url %></a>
               <% end %>
             </td>
             <td><%= link_to 'Show', person, class: "btn btn-orange" %></td>
