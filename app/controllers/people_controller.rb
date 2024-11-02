@@ -27,17 +27,17 @@ class PeopleController < ApplicationController
 
   # POST /people or /people.json
   def create
-    # @person = Person.new(person_params)
+    @person = Person.new(person_params)
 
-    # respond_to do |format|
-    #   if @person.save
-    #     format.html { redirect_to @person, notice: "Person was successfully created." }
-    #     format.json { render json: { person: @person, qr_code: @person.qr_code }, status: :created, location: @person }
-    #   else
-    #     format.html { render :new, status: :unprocessable_entity }
-    #     format.json { render json: @person.errors, status: :unprocessable_entity }
-    #   end
-    # end
+    respond_to do |format|
+      if @person.save
+        format.html { redirect_to @person, notice: "Person was successfully created." }
+        format.json { render json: { person: @person, qr_code: @person.qr_code }, status: :created, location: @person }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @person.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # PATCH/PUT /people/1 or /people/1.json
